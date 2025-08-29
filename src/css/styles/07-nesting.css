@@ -9,7 +9,7 @@ body {
   background-color: #ffc;
 
   > ul {
-    list-style-image: url(/src/assets/thumbnail/new.png);
+    list-style-image: url('/src/assets/thumbnail/new.png');
   }
 
   ul {
