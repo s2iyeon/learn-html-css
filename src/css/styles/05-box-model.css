@@ -87,7 +87,7 @@ p {
 }
 
 .container div:nth-child(n + 2) {
-  background-color: var(--yellow);
+  margin-left: -20px;
 }
 
 .container div:first-child {
