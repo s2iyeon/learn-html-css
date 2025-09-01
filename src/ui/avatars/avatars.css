@@ -46,6 +46,7 @@ body {
   padding: 0;
   border: 0;
   position: relative;
+  vertical-align: top;
 
   --size: 64px;
 
@@ -77,5 +78,20 @@ body {
 
   &[aria-label='offline']::after {
     background-color: #dbdbdb;
+  }
+}
+
+/* 아바타 레이아웃 */
+.avatar-list {
+  display: flow-root;
+  padding: 10px 30px;
+  border-radius: 0.5em;
+
+  width: 400px;
+  border: 2px solid #dbdbdb;
+
+  li {
+    float: left;
+    margin: 10px;
   }
 }
