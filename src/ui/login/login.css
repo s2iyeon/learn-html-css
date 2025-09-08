@@ -17,14 +17,15 @@
   --active-color: var(--blue-100);
 }
 
-body {
-  margin: 20px;
+body > a:first-child {
+  position: fixed;
+  inset-inline-start: 20px;
+  inset-block-start: 20px;
 }
-
 /* 로고 컴포넌트 */
 .logo {
   display: inline-flex;
-  inline-size: min(51.25%, 230px);
+  inline-size: clamp(164px, 51.25% 230px);
   color: var(--primary-color);
 }
 
@@ -157,12 +158,110 @@ body {
 
   .error-message {
     color: var(--red-100);
-    font-size: 0.625rem;
-    background: pink;
+    font-size: 0.75rem;
     visibility: hidden; /* display: none; */
   }
 
   input:user-invalid + .error-message {
     visibility: visible;
+  }
+}
+
+/* 레이아웃 */
+/* 모바일 퍼스트 */
+.header {
+  margin-block: 70px 45px;
+  text-align: center;
+
+  .logo {
+    vertical-align: top;
+  }
+
+  @media (width >=768px) {
+    margin-block: 100px 50px;
+  }
+}
+
+.main {
+  padding: 0 15px;
+
+  /* @media (width >= 768px) {
+    display: flex;
+    justify-content: center;
+  } 가운데 정렬/ 플렉스를 주거나 auto margin을 주거나 */
+
+  form {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 10px;
+
+    @media (width >= 768px) {
+      inline-size: 460px;
+      margin-inline: auto;
+    }
+    .input,
+    .checkbox-wrapper,
+    .button {
+      inline-size: 100%;
+    }
+
+    .checkbox-wrapper {
+      order: 1;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: end;
+      align-items: center;
+
+      @media (width<768px) {
+        .checkbox {
+        }
+
+        .textlink-new,
+        .switch {
+          display: none;
+        }
+      }
+
+      @media (width >= 768px) {
+        justify-content: start;
+
+        .checkbox {
+          margin-inline-end: auto;
+        }
+
+        .switch {
+          inline-size: 2.5em;
+          display: flex;
+          justify-content: end;
+        }
+      }
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      block-size: 56px;
+    }
+
+    /* 상태 디자인 */
+    :focus {
+      outline: 0 none;
+    }
+
+    .input input:focus-visible {
+      border: 1px solid var(--green-100);
+      background: var(--blue-100);
+    }
+
+    .button:focus-visible {
+      box-shadow: 0 0 1px 2px #f00;
+    }
+
+    .checkbox-wrapper *:focus-visible {
+      outline: 2px solid var(--green-100);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
   }
 }
