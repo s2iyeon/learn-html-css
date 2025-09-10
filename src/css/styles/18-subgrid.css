@@ -36,3 +36,18 @@ body {
     border-radius: 4px;
   }
 }
+
+/* 카드 레이아웃 */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-template-rows: repeat(4, auto);
+  gap: 16px;
+
+  .card {
+    grid-template-rows: subgrid;
+    /* grid-row-start: 1;
+    grid-row-end: 5; */
+    grid-row: span 4;
+  }
+}
